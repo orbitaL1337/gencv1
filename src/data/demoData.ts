@@ -1,0 +1,88 @@
+import { CVData } from '../types/cv';
+import { uid } from '../lib/utils';
+
+export const defaultCVData: CVData = {
+  personalInfo: {
+    fullName: '',
+    title: '',
+    email: '',
+    phone: '',
+    location: '',
+    website: '',
+    profileImage: '',
+  },
+  summary: '',
+  experience: [],
+  education: [],
+  skills: [],
+  languages: [],
+  certificates: [],
+  projects: [],
+  links: [],
+  interests: [],
+  references: [],
+  customSections: [],
+  settings: {
+    template: 'modern',
+    accentColor: '#2563eb',
+    fontFamily: 'Inter',
+    layout: 'two-column',
+    spacing: 'normal',
+    showProfileImage: false,
+    zoom: 100,
+  },
+  sectionOrder: ['summary', 'experience', 'education', 'skills', 'projects', 'languages', 'certificates', 'links', 'interests', 'references', 'customSections'],
+  visibilitySettings: {
+    personalInfo: true,
+    summary: true,
+    experience: true,
+    education: true,
+    skills: true,
+    languages: true,
+    certificates: true,
+    projects: true,
+    links: true,
+    interests: true,
+    references: true,
+    customSections: true,
+  },
+};
+
+export const demoCVData: CVData = {
+  ...defaultCVData,
+  personalInfo: {
+    fullName: 'Anna Kowalska',
+    title: 'Senior Frontend Engineer',
+    email: 'anna.kowalska@mail.com',
+    phone: '+48 600 700 800',
+    location: 'Warszawa, Polska',
+    website: 'https://annak.dev',
+    profileImage: '',
+  },
+  summary:
+    'Senior Frontend Engineer z 8-letnim doświadczeniem w budowie skalowalnych aplikacji SaaS. Specjalizuję się w React, TypeScript i projektowaniu systemów UI opartych o design system.',
+  experience: [
+    {
+      id: uid(),
+      position: 'Senior Frontend Engineer',
+      company: 'TechFlow',
+      location: 'Warszawa',
+      startDate: '2021-03',
+      endDate: '',
+      current: true,
+      achievements: [
+        'Zredukowałam czas ładowania aplikacji o 35% poprzez code splitting i optymalizację bundle.',
+        'Wdrożyłam design system, skracając czas implementacji nowych funkcji o 25%.',
+      ],
+    },
+  ],
+  education: [{ id: uid(), degree: 'Informatyka', institution: 'Politechnika Warszawska', startDate: '2012-10', endDate: '2017-06', current: false, details: 'Specjalizacja: inżynieria oprogramowania' }],
+  skills: [{ id: uid(), name: 'React', level: 'Ekspert' }, { id: uid(), name: 'TypeScript', level: 'Zaawansowany' }, { id: uid(), name: 'Tailwind CSS', level: 'Zaawansowany' }],
+  languages: [{ id: uid(), name: 'Polski', level: 'Native' }, { id: uid(), name: 'Angielski', level: 'C1' }],
+  certificates: [{ id: uid(), name: 'AWS Cloud Practitioner', issuer: 'Amazon', year: '2023' }],
+  projects: [{ id: uid(), name: 'CV Genius', description: 'Aplikacja do tworzenia CV z podglądem live i eksportem PDF.', technologies: 'React, Zustand, Tailwind', link: 'https://example.com' }],
+  links: [{ id: uid(), label: 'LinkedIn', url: 'https://linkedin.com/in/anna' }, { id: uid(), label: 'GitHub', url: 'https://github.com/anna' }],
+  interests: [{ id: uid(), name: 'Mentoring juniorów' }, { id: uid(), name: 'Bieganie' }],
+  references: [{ id: uid(), name: 'Jan Nowak', contact: 'jan.nowak@mail.com', note: 'CTO @ TechFlow' }],
+  customSections: [{ id: uid(), sectionTitle: 'Wyróżnienia', content: 'Prelegentka na FrontendCon 2024.' }],
+};
